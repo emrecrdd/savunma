@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /private
+Disallow: /api
+Disallow: /tmp
+Disallow: /backup
+Disallow: /test
+
+Allow: /images/
+Allow: /galeri/
+
+Sitemap: https://tamismakine.com.tr/sitemap.xml

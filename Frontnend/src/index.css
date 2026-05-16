@@ -1,0 +1,742 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy-900 text-gray-200 font-sans antialiased;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl font-bold text-white;
+  }
+  
+  h2 {
+    @apply text-3xl font-semibold text-white mb-6;
+  }
+  
+  h3 {
+    @apply text-xl font-medium text-white;
+  }
+  
+  /* Form elemanları */
+  input, textarea, select {
+    @apply bg-navy-800 border border-navy-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-navy-500 focus:ring-1 focus:ring-navy-500 transition-all;
+  }
+  
+  /* Scrollbar stilleri */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-navy-600 rounded-full hover:bg-navy-500;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Butonlar */
+  .btn-primary {
+    @apply bg-navy-700 hover:bg-navy-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-navy-500 hover:border-navy-400;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-navy-600 hover:border-navy-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-navy-800 hover:bg-navy-700 text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-navy-700;
+  }
+  
+  /* Kartlar */
+  .card {
+    @apply bg-navy-800/50 backdrop-blur-sm rounded-xl p-6 border border-navy-700 hover:border-navy-600 transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-900/50;
+  }
+  
+  /* Section padding */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  /* Grid sistemleri */
+  .grid-auto-fit {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  }
+  
+  /* Form grupları */
+  .form-group {
+    @apply space-y-2;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-300;
+  }
+  
+  .form-input {
+    @apply w-full bg-navy-900 border border-navy-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-navy-500 transition-colors;
+  }
+  
+  .form-error {
+    @apply text-red-400 text-sm mt-1;
+  }
+  
+  /* Badge / Etiketler */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-navy-700 text-navy-200;
+  }
+  
+  .badge-success {
+    @apply bg-green-900/50 text-green-300 border border-green-800;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-900/50 text-yellow-300 border border-yellow-800;
+  }
+  
+  /* Tablo stilleri */
+  .table-container {
+    @apply overflow-x-auto rounded-lg border border-navy-700;
+  }
+  
+  .table {
+    @apply min-w-full divide-y divide-navy-700;
+  }
+  
+  .table th {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider bg-navy-800;
+  }
+  
+  .table td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-300 border-b border-navy-700;
+  }
+  
+  .table tr:hover {
+    @apply bg-navy-800/50;
+  }
+  /* Progress Bar */
+.progress-bar {
+  @apply w-full bg-navy-700 rounded-full h-2 overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply bg-gradient-to-r from-navy-500 to-navy-400 h-full rounded-full transition-all duration-1000 ease-out;
+}
+
+
+
+
+
+/* Container taşma sorunları için */
+.container-custom {
+  overflow-x: hidden;
+}
+
+/* Tüm resimler için max-width */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Taşmaları engelle */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-4 border-navy-700 border-t-navy-400 h-10 w-10;
+  }
+  @keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+  /* Progress bar */
+  .progress-bar {
+    @apply w-full bg-navy-700 rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-bar-fill {
+    @apply bg-navy-500 h-full rounded-full transition-all duration-500;
+  }
+  
+  /* Modal */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+  }
+  
+  .modal-content {
+    @apply bg-navy-800 rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-navy-700;
+  }
+  
+  /* Tooltip */
+  .tooltip {
+    @apply relative inline-block;
+  }
+  
+  .tooltip-text {
+    @apply invisible absolute z-10 bg-navy-700 text-white text-sm rounded-lg py-2 px-3 bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 opacity-0 transition-all duration-200 whitespace-nowrap;
+  }
+  
+  .tooltip:hover .tooltip-text {
+    @apply visible opacity-100;
+  }
+  
+  /* Sayfalama */
+  .pagination {
+    @apply flex items-center space-x-2;
+  }
+  
+  .pagination-item {
+    @apply px-3 py-1 rounded-lg border border-navy-700 text-gray-400 hover:bg-navy-700 hover:text-white transition-colors;
+  }
+  
+  .pagination-item.active {
+    @apply bg-navy-600 text-white border-navy-500;
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb {
+    @apply flex items-center space-x-2 text-sm text-gray-400;
+  }
+  
+  .breadcrumb-item {
+    @apply hover:text-white transition-colors;
+  }
+  
+  .breadcrumb-separator {
+    @apply text-gray-600;
+  }
+  
+  /* Alert / Bildirimler */
+  .alert {
+    @apply p-4 rounded-lg border mb-4;
+  }
+  
+  .alert-success {
+    @apply bg-green-900/20 border-green-800 text-green-300;
+  }
+  
+  .alert-error {
+    @apply bg-red-900/20 border-red-800 text-red-300;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-900/20 border-yellow-800 text-yellow-300;
+  }
+  
+  .alert-info {
+    @apply bg-blue-900/20 border-blue-800 text-blue-300;
+  }
+  
+  /* Tabs */
+  .tabs {
+    @apply border-b border-navy-700;
+  }
+  
+  .tab-list {
+    @apply flex space-x-8;
+  }
+  
+  .tab {
+    @apply py-4 px-1 border-b-2 border-transparent text-gray-400 hover:text-white hover:border-navy-500 transition-colors;
+  }
+  
+  .tab.active {
+    @apply text-white border-navy-500;
+  }
+  
+  /* Accordion */
+  .accordion-item {
+    @apply border border-navy-700 rounded-lg mb-2 overflow-hidden;
+  }
+  
+  .accordion-header {
+    @apply w-full text-left p-4 bg-navy-800 hover:bg-navy-700 transition-colors flex justify-between items-center;
+  }
+  
+  .accordion-content {
+    @apply p-4 bg-navy-900 border-t border-navy-700;
+  }
+  
+  /* Dropdown */
+  .dropdown {
+    @apply relative;
+  }
+  
+  .dropdown-menu {
+    @apply absolute right-0 mt-2 w-48 bg-navy-800 rounded-lg shadow-xl border border-navy-700 py-1 z-50;
+  }
+  
+  .dropdown-item {
+    @apply block px-4 py-2 text-sm text-gray-300 hover:bg-navy-700 hover:text-white transition-colors;
+  }
+  
+  /* Navbar için özel stiller */
+  .navbar-link {
+    @apply text-gray-400 hover:text-white transition-colors text-sm font-medium;
+  }
+  
+  .navbar-link.active {
+    @apply text-white;
+  }
+  
+  /* Hero section için gradient */
+  .hero-gradient {
+    @apply absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-transparent;
+  }
+  
+  /* Stats kartları */
+  .stat-card {
+    @apply p-6 rounded-xl bg-navy-800/50 border border-navy-700 hover:border-navy-600 transition-all;
+  }
+  
+  .stat-number {
+    @apply text-4xl md:text-5xl font-bold text-white mb-2;
+  }
+  
+  .stat-label {
+    @apply text-gray-400 text-sm uppercase tracking-wider;
+  }
+  
+  /* News kartları */
+  .news-card {
+    @apply bg-navy-800/50 rounded-xl overflow-hidden border border-navy-700 hover:border-navy-600 transition-all hover:transform hover:-translate-y-1 duration-300;
+  }
+  
+  .news-card-image {
+    @apply h-48 bg-navy-700 relative overflow-hidden;
+  }
+  
+  .news-card-content {
+    @apply p-6;
+  }
+  
+  .news-card-title {
+    @apply text-lg font-semibold text-white mb-2 hover:text-navy-300 transition-colors line-clamp-2;
+  }
+  
+  .news-card-meta {
+    @apply text-xs text-gray-500 mb-2;
+  }
+  
+  .news-card-summary {
+    @apply text-sm text-gray-400 mb-4 line-clamp-2;
+  }
+  
+  /* Product kartları */
+  .product-card {
+    @apply group relative bg-gradient-to-b from-navy-800 to-navy-900 rounded-xl overflow-hidden border border-navy-700 hover:border-navy-500 transition-all duration-500 hover:shadow-2xl hover:shadow-navy-900/50;
+  }
+  
+  .product-card-image {
+    @apply h-48 bg-navy-700 relative overflow-hidden;
+  }
+  
+  .product-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+  }
+  
+  .product-card-content {
+    @apply p-6 relative z-10;
+  }
+  
+  .product-card-title {
+    @apply text-xl font-bold text-white mb-3 group-hover:text-navy-300 transition-colors;
+  }
+  
+  .product-card-description {
+    @apply text-gray-400 text-sm mb-4 line-clamp-2;
+  }
+  
+  .product-card-features {
+    @apply flex flex-wrap gap-2 mb-4;
+  }
+  
+  .product-card-feature {
+    @apply text-xs bg-navy-900 text-navy-300 px-2 py-1 rounded-full border border-navy-700;
+  }
+  
+  /* Timeline */
+  .timeline {
+    @apply relative;
+  }
+  
+  .timeline::before {
+    content: '';
+    @apply absolute left-4 top-0 bottom-0 w-0.5 bg-navy-700;
+  }
+  
+  .timeline-item {
+    @apply relative pl-10 pb-8;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-2 top-1 w-4 h-4 rounded-full bg-navy-600 border-4 border-navy-800;
+  }
+  
+  .timeline-date {
+    @apply text-sm text-navy-400 mb-1;
+  }
+  
+  .timeline-title {
+    @apply text-lg font-semibold text-white mb-2;
+  }
+  
+  .timeline-description {
+    @apply text-gray-400 text-sm;
+  }
+  
+  /* Referans logosu için */
+  .reference-logo {
+    @apply flex-shrink-0 w-32 h-32 bg-navy-800/50 rounded-xl border border-navy-700 p-4 flex flex-col items-center justify-center group hover:border-navy-500 transition-all;
+  }
+  
+  .reference-logo-placeholder {
+    @apply w-16 h-16 bg-navy-700 rounded-full mb-2 flex items-center justify-center text-2xl font-bold text-navy-400;
+  }
+  
+  /* İletişim formu için */
+  .contact-info-item {
+    @apply flex items-start space-x-3 text-gray-400;
+  }
+  
+  .contact-info-icon {
+    @apply text-navy-500 mt-1;
+  }
+  
+  /* Harita container */
+  .map-container {
+    @apply h-64 rounded-lg overflow-hidden border border-navy-700;
+  }
+  
+  /* Dosya yükleme */
+  .file-upload {
+    @apply border-2 border-dashed border-navy-700 rounded-lg p-6 text-center hover:border-navy-500 transition-colors cursor-pointer;
+  }
+  
+  .file-upload-icon {
+    @apply text-4xl text-gray-500 mb-2;
+  }
+  
+  .file-upload-text {
+    @apply text-sm text-gray-400;
+  }
+  
+  .file-upload-hint {
+    @apply text-xs text-gray-600 mt-1;
+  }
+}
+
+@layer utilities {
+  /* Animasyonlar */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Animasyon class'ları */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-slide-right {
+    animation: slideInRight 0.5s ease-out;
+  }
+  
+  .animate-slide-left {
+    animation: slideInLeft 0.5s ease-out;
+  }
+  
+  .animate-scale {
+    animation: scaleIn 0.4s ease-out;
+  }
+  
+  .animate-rotate {
+    animation: rotate 1s linear infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+  
+  /* Scroll animasyonu için */
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  /* Metin stilleri */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-navy-400 to-white bg-clip-text text-transparent;
+  }
+  
+  /* Line clamp */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Glass morphism */
+  .glass {
+    @apply backdrop-blur-md bg-navy-900/30 border border-navy-800;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md bg-navy-900/70 border border-navy-700;
+  }
+  
+  /* Grid gap varyasyonları */
+  .gap-grid {
+    @apply gap-4 md:gap-6 lg:gap-8;
+  }
+  
+  /* Z-index yardımcıları */
+  .z-1 { z-index: 1; }
+  .z-2 { z-index: 2; }
+  .z-3 { z-index: 3; }
+  
+  /* Aspect ratio */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+  
+  /* Scroll davranışı */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-margin-top {
+    scroll-margin-top: 80px;
+  }
+  
+  /* Print stilleri */
+  @media print {
+    .no-print {
+      display: none;
+    }
+    
+    .print-only {
+      display: block;
+    }
+  }
+}
+
+/* Responsive ayarlamalar */
+@media (max-width: 640px) {
+  .container-custom {
+    @apply px-4;
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+  
+  .section-padding {
+    @apply py-12;
+  }
+}
+
+/* Karanlık tema için ek stiller */
+.dark {
+  color-scheme: dark;
+}
+
+/* Geçiş efektleri */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply bg-navy-700 animate-pulse rounded;
+}
+
+.skeleton-text {
+  @apply h-4 skeleton;
+}
+
+.skeleton-title {
+  @apply h-6 skeleton w-2/3;
+}
+
+.skeleton-image {
+  @apply w-full h-48 skeleton;
+}
+
+.skeleton-card {
+  @apply bg-navy-800 rounded-xl p-6 space-y-4;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
